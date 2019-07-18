@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+<div class="container">
+	<h2 style="font-family: calibri; font-weight: bolder">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HOMEPAGE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+	{% if user != "" %}
+	<span style="font-family: cambria; color: black; font-size: 25px;">Hello </span><span style="font-family: cambria; color: red; font-size: 25px;">&nbsp;{{ user }}</span>
+	<h2>
+	{% endif %}
+	<br><br>
+	{% for pro in products %}
+</h2></h2>
+	<div class="row">
+		<div class="col-4">
+			<a href="{% url 'detail' pro.id %}"><img src="{{ pro.image.url }}" height="270" width="330"></a>
+		</div>
+		<div class="col-4 text-center">
+			<br><br>
+			<h4><a href="{% url 'detail' pro.id %}" style="text-decoration: none;">{{ pro.title }}</a></h4>
+			<br>
+			{{ pro.url }}
+		</div>
+		<div class="col-4">
+			<br><br><br>
+			<button class="btn btn-success" style="min-width: 90px; max-width: 90px;">{{ pro.total_votes }}</button>
+		</div>
+	</div>
+	<br><br>
+	{% endfor %}
+
+</div>
+
+{% endblock %}

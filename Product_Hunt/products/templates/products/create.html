@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="container">
+	<br>
+	<h2 style="font-family: calibri; font-weight: bold">CREATE</h2>
+	<span style="color: red">{{ error }}</span>
+	<span style="color: green">{{ no_error }}</span>
+	<br/>
+	<form action="{% url 'create' %}" method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		<br>
+		<input type="text" name="title" placeholder="Title">
+		<br><br>
+		<textarea rows="4" cols="70" placeholder="Body" name="body"></textarea>
+		<br><br>
+		<input type="text" name="url" placeholder="URL">
+		<br><br>
+		Icon:<br>
+		<input type="file" name="icon">
+		<br><br>
+		Image:<br>
+		<input type="file" name="image">
+		<br><br>
+		<input type="submit" class="btn btn-primary" name="button" value="Upload">
+	</form>
+</div>
+
+
+{% endblock %}

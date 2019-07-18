@@ -1,0 +1,32 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+<div class="container">
+	<h2 style="font-family: calibri; font-weight: bolder">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MY PRODUCTS</h2>
+	<br>
+	{% for us in pm %}
+
+	{% if us.hunter == user %}
+
+		<div class="row">
+		<div class="col-4">
+			<a href="{% url 'detail' us.id %}"><img src="{{ us.image.url }}" height="300" width="400"></a>
+		</div>
+		<div class="col-4 text-center">
+			<br><br><br><br><br>
+			<h4><a href="{% url 'detail' us.id %}" style="text-decoration: none;">{{ us.title }}</a></h4>
+			<br>
+			{{ us.url }}
+		</div>
+	</div>
+	<br>
+
+	{% endif %}
+
+	{% endfor %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+<div class="container">
+	<h3 style="font-family: calibri; font-weight: bold">UPLOADED PRODUCT DETAILS</h3>
+	{% for data in detail %}
+		<div class="row">
+			<div class="col-2">
+				<img src="{{ data.icon.url }}" height="40" width="40">
+			</div>
+			<div class="col-4">
+				<a href="{% url 'linked_page' %}">{{ data.title }} </a>
+			</div>
+		</div>
+		<br>
+	{% endfor %}	
+</div>
+
+
+{% endblock %}
+
+
+
+
